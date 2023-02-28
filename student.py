@@ -40,19 +40,19 @@ class Student:
         bg_img=Label(self.root,image=self.photoimg3)
         bg_img.place(x=0,y=130,width=1530,height=710)
 
-        title_lbl=Label(bg_img,text="ادارة بيانات الطلاب",font=("times new roman",35,"bold"),bg="white",fg="darkgreen")
-        title_lbl.place(x=0,y=0,width=1530,height=45)
+       # title_lbl=Label(bg_img,text="ادارة بيانات الطلاب",font=("times new roman",35,"bold"),bg="white",fg="darkgreen")
+       # title_lbl.place(x=0,y=0,width=1530,height=45)
 
         main_frame=Frame(bg_img,bd=2,bg="white")
-        main_frame.place(x=0,y=48,width=1500,height=650)
+        main_frame.place(x=0,y=0,width=1500,height=650)
 
         #left label frame 
 
-        Left_frame=LabelFrame(main_frame,bd=2,bg="white",relief=RIDGE,text="Student Details", font=("times new roman",12,"bold"))
+        Left_frame=LabelFrame(main_frame,bd=2,bg="white",relief=RIDGE,text="", font=("times new roman",12,"bold"))
         Left_frame.place(x=10,y=10,width=660,height=580)
 
-        img_left=Image.open(r"C:\Users\DELL\Desktop\face recognition system\images\shaLogo.jpeg")
-        img_left=img_left.resize((197,145),Image.ANTIALIAS)
+        img_left=Image.open(r"C:\Users\DELL\Desktop\face recognition system\images\add.png")
+        img_left=img_left.resize((150,150),Image.ANTIALIAS)
         self.photoimg_left=ImageTk.PhotoImage(img_left)
 
         f_lbl=Label(Left_frame,image=self.photoimg_left)
@@ -60,12 +60,12 @@ class Student:
 
         #current course 
 
-        current_course_frame=LabelFrame(Left_frame,bd=2,bg="white",relief=RIDGE,text="current course information", font=("times new roman",12,"bold"))
-        current_course_frame.place(x=5,y=135,width=660,height=150)
+        current_course_frame=LabelFrame(Left_frame,bd=2,bg="white",relief=RIDGE,text="ادارة بيانات الطالب", font=("times new roman",12,"bold"))
+        current_course_frame.place(x=5,y=135,width=660,height=120)
 
         #department
        
-        dep_label=Label(current_course_frame,text="Department",font=("times new roman",12,"bold"),bg="white",fg="darkgreen")
+        dep_label=Label(current_course_frame,text="القسم: ",font=("times new roman",12,"bold"),bg="white",fg="darkgreen")
         dep_label.grid(row=0,column=0,padx=10,sticky=W)
         dep_combo=ttk.Combobox(current_course_frame,font=("times new roman",12,"bold"),width=17,state="read only")
         dep_combo["values"]=("اختار القسم", "علوم حاسب","نظم ومعلومات","هندسة","اعلام","ادارة ومحاسبه")
@@ -74,22 +74,124 @@ class Student:
 
         #course
        
-        course_label=Label(current_course_frame,text="course",font=("times new roman",12,"bold"),bg="white",fg="darkgreen")
+        course_label=Label(current_course_frame,text="المواد: ",font=("times new roman",12,"bold"),bg="white",fg="darkgreen")
         course_label.grid(row=0,column=2,padx=10,sticky=W)
 
         course_combo=ttk.Combobox(current_course_frame,font=("times new roman",12,"bold"),width=17,state="read only")
-        course_combo["values"]=("اختار القسم", "sdsa حاسب","نظم ومعلومات","هندسة","اعلام","ادارة ومحاسبه")
+        course_combo["values"]=("اختار المواد", "sdsa حاسب","نظم ومعلومات","هندسة","اعلام","ادارة ومحاسبه")
         course_combo.current(0)
-        course_combo.grid(row=0,column=2,padx=2,pady=10)
+        course_combo.grid(row=0,column=3,padx=2,pady=10)
+
+         #department
+       
+        dep_label=Label(current_course_frame,text="السنة الدراسية: ",font=("times new roman",12,"bold"),bg="white",fg="darkgreen")
+        dep_label.grid(row=1,column=0,padx=10,sticky=W)
+        dep_combo=ttk.Combobox(current_course_frame,font=("times new roman",12,"bold"),width=17,state="read only")
+        dep_combo["values"]=("الرابعة", "علوم حاسب","نظم ومعلومات","هندسة","اعلام","ادارة ومحاسبه")
+        dep_combo.current(0)
+        dep_combo.grid(row=1,column=1,padx=2,pady=10)
+
+        #course
+       
+        course_label=Label(current_course_frame,text="الترم: ",font=("times new roman",12,"bold"),bg="white",fg="darkgreen")
+        course_label.grid(row=1,column=2,padx=10,sticky=W)
+
+        course_combo=ttk.Combobox(current_course_frame,font=("times new roman",12,"bold"),width=17,state="read only")
+        course_combo["values"]=("الثاني", "sdsa حاسب","نظم ومعلومات","هندسة","اعلام","ادارة ومحاسبه")
+        course_combo.current(0)
+        course_combo.grid(row=1,column=3,padx=2,pady=10)
+
+        #class student information
+
+        class_frame=LabelFrame(Left_frame,bd=2,bg="white",relief=RIDGE,text="Class student infrormation",font=("times new roman",12,"bold"))
+        class_frame.place(x=5,y=250,width=700,height=300)
+
+        #first row
+
+        studId_label=Label(class_frame,text="الكود الجامعي",font=("times new roman",12,"bold"),bg="white",fg="darkgreen")
+        studId_label.grid(row=0,column=0,padx=10,sticky=W)
+
+        search_entry=ttk.Entry(class_frame,width=15,font=("times new roman",13,"bold"))
+        search_entry.grid(row=0,column=1,pady=5,padx=10,sticky=W)
+
+        studName_label=Label(class_frame,text="اسم الطالب",font=("times new roman",12,"bold"),bg="white",fg="darkgreen")
+        studName_label.grid(row=0,column=3,padx=10,sticky=W)
+
+        search_entry=ttk.Entry(class_frame,width=15,font=("times new roman",13,"bold"))
+        search_entry.grid(row=0,column=4,pady=5,padx=10,sticky=W)
+
+        #second row
+
+        gender_label=Label(class_frame,text="النوع",font=("times new roman",12,"bold"),bg="white",fg="darkgreen")
+        gender_label.grid(row=1,column=0,padx=10,sticky=W)
+
+        search_entry=ttk.Entry(class_frame,width=15,font=("times new roman",13,"bold"))
+        search_entry.grid(row=1,column=1,pady=5,padx=10,sticky=W)
+
+        phone_label=Label(class_frame,text="رقم الهاتف",font=("times new roman",12,"bold"),bg="white",fg="darkgreen")
+        phone_label.grid(row=1,column=3,padx=10,sticky=W)
+
+        search_entry=ttk.Entry(class_frame,width=15,font=("times new roman",13,"bold"))
+        search_entry.grid(row=1,column=4,pady=5,padx=10,sticky=W)
+
+        #third row 
+
+        email_label=Label(class_frame,text="البريد الالكتروني",font=("times new roman",12,"bold"),bg="white",fg="darkgreen")
+        email_label.grid(row=2,column=0,padx=10,sticky=W)
+
+        search_entry=ttk.Entry(class_frame,width=15,font=("times new roman",13,"bold"))
+        search_entry.grid(row=2,column=1,pady=5,padx=10,sticky=W)
+
+        address_label=Label(class_frame,text="العنوان",font=("times new roman",12,"bold"),bg="white",fg="darkgreen")
+        address_label.grid(row=2,column=3,padx=10,sticky=W)
+
+        search_entry=ttk.Entry(class_frame,width=15,font=("times new roman",13,"bold"))
+        search_entry.grid(row=2,column=4,pady=5,padx=10,sticky=W)
+
+        #Radio Burrons 
+
+        #radiobtn1=ttk.Radiobutton(class_frame,text="take photo",value="YES")
+        #radiobtn1.grid(row=3,column=0)
+
+       # radiobtn2=ttk.Radiobutton(class_frame,text="no photo",value="YES")
+        #radiobtn2.grid(row=3,column=1)
+        #btn frame
+        btn_frame=Frame(class_frame,bd=2,relief=RIDGE,bg="white")
+        btn_frame.place(x=5,y=155,width=700,height=70)
+
+        save_btn=Button(btn_frame,text="حفظ",width=14,font=("times new roman",13,"bold"),bg="blue",fg="white")
+        save_btn.grid(row=0,column=0,padx=4)
+
+        edit_btn=Button(btn_frame,text="تعديل",width=14,font=("times new roman",13,"bold"),bg="blue",fg="white")
+        edit_btn.grid(row=0,column=1,padx=4)
+
+        delete_btn=Button(btn_frame,text="حذف",width=14,font=("times new roman",13,"bold"),bg="blue",fg="white")
+        delete_btn.grid(row=0,column=2,padx=4)
+
+        reset_btn=Button(btn_frame,text="حذف الكل",width=14,font=("times new roman",13,"bold"),bg="blue",fg="white")
+        reset_btn.grid(row=0,column=3,padx=4)
+
+        takePhoto_btn=Button(class_frame,text="تحميل صورة",width=15,font=("times new roman",13,"bold"),bg="blue",fg="white")
+        takePhoto_btn.grid(row=3,column=0,padx=4,pady=5)
+
+        updatePhoto_btn=Button(class_frame,text="تعديل صورة",width=15,font=("times new roman",13,"bold"),bg="blue",fg="white")
+        updatePhoto_btn.grid(row=3,column=1,padx=4,pady=5)
+
+
+
+
+
+
+
 
 
         #right label frame 
 
-        right_frame=LabelFrame(main_frame,bd=2,bg="white",relief=RIDGE,text="Student Details", font=("times new roman",12,"bold"))
+        right_frame=LabelFrame(main_frame,bd=2,bg="white",relief=RIDGE,text="", font=("times new roman",12,"bold"))
         right_frame.place(x=680,y=10,width=660,height=580)
 
-        img_right=Image.open(r"C:\Users\DELL\Desktop\face recognition system\images\shaLogo.jpeg")
-        img_right=img_right.resize((197,145),Image.ANTIALIAS)
+        img_right=Image.open(r"C:\Users\DELL\Desktop\face recognition system\images\search.png")
+        img_right=img_right.resize((150,150),Image.ANTIALIAS)
         self.photoimg_right=ImageTk.PhotoImage(img_right)
 
         f_lbl=Label(right_frame,image=self.photoimg_right)
@@ -97,11 +199,13 @@ class Student:
 
         #search system frame
 
-        Search_frame=LabelFrame(right_frame,bd=2,bg="white",relief=RIDGE,text="Search System",font=("times new roman",12,"bold"),fg="darkgreen")
+        Search_frame=LabelFrame(right_frame,bd=2,bg="white",relief=RIDGE,text="بحث",font=("times new roman",12,"bold"),fg="darkgreen")
         Search_frame.place(x=5,y=135,width=660,height=70)
 
-        search_label=Label(Search_frame,text="Seach By:",font=("times new roman",12,"bold"),bg="red",fg="white")
+        search_label=Label(Search_frame,text="بحث بواسطة:",font=("times new roman",12,"bold"),bg="white",fg="red")
         search_label.grid(row=0,column=0,padx=10,pady=5,sticky=W)
+
+        
 
         search_combo=ttk.Combobox(Search_frame,font=("times new roman",12,"bold"),width=12,state="read only")
         search_combo["values"]=("اختار ", "الرقم الجامعي","الاسم")
@@ -111,10 +215,10 @@ class Student:
         search_entry=ttk.Entry(Search_frame,width=15,font=("times new roman",13,"bold"))
         search_entry.grid(row=0,column=2,pady=5,padx=10,sticky=W)
 
-        search_btn=Button(Search_frame,text="Search",width=12,font=("times new roman",12,"bold"),bg="blue", fg="white")
+        search_btn=Button(Search_frame,text="بحث",width=12,font=("times new roman",12,"bold"),bg="blue", fg="white")
         search_btn.grid(row=0,column=3,padx=4)
 
-        showAll_btn=Button(Search_frame,text="Show All",width=12,font=("times new roman",12,"bold"),bg="blue", fg="white")
+        showAll_btn=Button(Search_frame,text="اظهار الجميع",width=12,font=("times new roman",12,"bold"),bg="blue", fg="white")
         showAll_btn.grid(row=0,column=4,padx=4)
 
         # ===========table frame ####################
@@ -135,7 +239,11 @@ class Student:
         scroll_x.config(command=self.student_table.xview())
         scroll_y.config(command=self.student_table.yview())
 
-        self.student_table.heading("dep",text="Department")
+        self.student_table.heading("dep",text="الاسم")
+        self.student_table.heading("course",text="القسم")
+        self.student_table.heading("year",text="الشعبة")
+        self.student_table.heading("sem",text="نسبة الحضور")
+
         
 
         #self.student_table.heading("name",text="Name")

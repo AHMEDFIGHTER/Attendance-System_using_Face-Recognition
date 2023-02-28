@@ -42,8 +42,8 @@ class Face_Recognition_System:
         bg_img=Label(self.root,image=self.photoimg3)
         bg_img.place(x=0,y=130,width=1530,height=710)
 
-        title_lbl=Label(bg_img,text="برنامج تسجيل الحضور باكاديمية الشروق",font=("times new roman",35,"bold"),bg="white",fg="red")
-        title_lbl.place(x=0,y=0,width=1530,height=45)
+        title_lbl=Label(bg_img,text="    ",font=("times new roman",35,"bold"),bg="white",fg="red")
+        title_lbl.place(x=0,y=0,width=1530,height=20)
        # title_lbl.configure(anchor="center")
 
         #student button 
